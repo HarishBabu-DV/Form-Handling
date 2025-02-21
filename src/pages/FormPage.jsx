@@ -26,12 +26,12 @@ const FormPage = () => {
     
   }
   return (
-    <section className="bg-[#f3f3f3]">
+    <section className="">
         {/* Heading  */}
         <h1 className="text-3xl font-bold text-center ">Create Movies</h1>
         {/* Creating New movies form  */}
         <form action="" className="flex justify-center">  
-          <div className="flex flex-col py-10 gap-y-4 max-w-[600px] w-full rounded-md">
+          <div className="bg-[#f3f3f3] flex flex-col py-10 gap-y-4 max-w-[600px] w-full rounded-md">
             
             <div className="flex items-center px-4">
               <Label inputName={'name'} labelName={'name'} className={'capitalize'}/>     
