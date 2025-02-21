@@ -11,15 +11,24 @@ const FormPage = () => {
     duration:"",
     ratings:"",
     releaseDate:"",
-    releaseYear:""
+    releaseYear:"",
+    uploadedFile:""
   })
   const handleInputChange=(event)=>{
     [event.target.name]=event.target.value;
   }
+  const handleFileChange=(event)=>{
+    event.target.files && setFormData({
+      ...formData,
+      uploadedFile:event.target.files[0]
+    })
+    console.log(formData.uploadedFile);
+    
+  }
   return (
     <section>
         {/* Heading  */}
-        <h1 className="text-3xl font-bold ">Create Movies</h1>
+        <h1 className="text-3xl font-bold text-center ">Create Movies</h1>
         {/* Creating New movies form  */}
         <form action="" className="flex justify-center">  
           <div className="bg-[#f3f3f3] flex flex-col py-10 gap-y-4 max-w-[700px] w-full rounded-md">
@@ -36,12 +45,12 @@ const FormPage = () => {
            
             <div className="flex items-center px-4">
               <Label inputName={'duration'} labelName={'duration'} className={'capitalize'}/>     
-              <input type="number" name="duration" id="" className="border-1 rounded-sm px-4 py-2 w-[60%]" />
+              <input type="number" name="duration" id="" min={1} max={300} placeholder="in minutes" className="border-1 rounded-sm px-4 py-2 w-[60%]" />
             </div>
            
             <div className="flex items-center px-4">
               <Label inputName={'ratings'} labelName={'ratings'} className={'capitalize'}/>     
-              <input type="number" name="ratings" id="" className="border-1 rounded-sm px-4 py-2 w-[60%]" />
+              <input type="number" name="ratings" id="" min={0.1} max={10.0} className="border-1 rounded-sm px-4 py-2 w-[60%]" placeholder="example: 8.1/10" />
             </div>
 
              <div className="flex items-center px-4">
